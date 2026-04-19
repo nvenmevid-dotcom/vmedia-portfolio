@@ -65,32 +65,13 @@ const volumeIcons = {
   `
 };
 
-// Video lazy loading and viewport playback
-const videoObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    const video = entry.target.querySelector('video');
-    if (entry.isIntersecting) {
-      // Video is in viewport, load and try to autoplay
-      if (video.preload === 'none') {
-        video.preload = 'metadata';
-      }
-      // Try to autoplay when video comes into view
-      video.play().catch(() => {
-        // Autoplay blocked by browser - user can still play manually
-        console.log('Autoplay blocked for video');
-      });
-    } else {
-      // Video is out of viewport, pause to save resources
-      video.pause();
-    }
-  });
-}, { threshold: 0.1 });
-
 videoCards.forEach(card => {
   const video = card.querySelector('video');
-  // Start with no preload for better initial page load
-  video.preload = 'none';
-  videoObserver.observe(card);
+  video.preload = 'auto';
+  video.load();
+  video.play().catch(() => {
+    console.log('Autoplay blocked for video');
+  });
 });
 
 // Set up video controls for each card
@@ -293,5 +274,4 @@ videoCards.forEach(card => {
 
   video.volume = 0;
   setVolume(0);
-  // Removed automatic play() - now handled by Intersection Observer
 });
