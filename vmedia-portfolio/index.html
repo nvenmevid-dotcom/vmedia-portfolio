@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vmedia — Steven Sarreal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── NAV ─────────────────────────────────── -->
+  <nav>
+    <a href="#hero" class="nav-logo">Vmedia</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Clients</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <!-- EDIT: add more nav links here if needed -->
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+
+    <!-- decorative diamond shape behind text -->
+    <div class="hero-diamond"></div>
+
+    <!-- corner brackets -->
+    <div class="hero-corner hero-corner--tl"></div>
+    <div class="hero-corner hero-corner--tr"></div>
+    <div class="hero-corner hero-corner--bl"></div>
+    <div class="hero-corner hero-corner--br"></div>
+
+    <!-- side labels -->
+    <span class="hero-side-label hero-side-label--left">Philippines &nbsp;·&nbsp; Remote</span>
+    <span class="hero-side-label hero-side-label--right">Est. 2022 &nbsp;·&nbsp; Vmedia</span>
+
+    <!-- center content -->
+    <div class="hero-content">
+      <!-- EDIT: change eyebrow text below -->
+      <p class="hero-eyebrow">Video Editor &nbsp;·&nbsp; Visual Storyteller</p>
+
+      <!-- EDIT: change your name/title below -->
+      <h1 class="hero-title">
+        Crafting Visuals<br>
+        <em>That Move.</em>
+      </h1>
+
+      <!-- EDIT: change subtitle below -->
+      <p class="hero-sub">
+        From short-form content to cinematic brand films —<br>
+        stories told with intention, by Vmedia.
+      </p>
+
+      <!-- EDIT: change button text or link -->
+      <a href="#work" class="hero-cta">View My Work</a>
+    </div>
+  </section>
+
+  <!-- ── WORK ─────────────────────────────────── -->
+  <section id="work">
+    <div class="section-header">
+      <p class="section-label">Selected Work</p>
+      <!-- EDIT: change section title -->
+      <h2 class="section-title">My Work</h2>
+    </div>
+
+    <!-- EDIT: replace local video file names with your own files -->
+    <!-- Put MP4 files in videos/video1.mp4, videos/video2.mp4, etc. -->
+    <div class="video-grid">
+
+      <div class="video-card">
+        <video muted loop playsinline preload="metadata">
+          <source src="videos/video1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-controls">
+          <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
+          <div class="video-control-bar">
+            <div class="video-progress-container">
+              <div class="video-progress-fill"></div>
+              <input class="video-progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="Video Progress" />
+            </div>
+            <div class="video-volume-group">
+              <button class="video-control video-control--mute" type="button" aria-label="Mute/Unmute">🔇</button>
+              <div class="video-volume-wrapper">
+                <input class="video-volume" type="range" min="0" max="1" step="0.05" value="0" aria-label="Volume" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <video muted loop playsinline preload="metadata">
+          <source src="videos/video2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-controls">
+          <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
+          <div class="video-control-bar">
+            <div class="video-progress-container">
+              <div class="video-progress-fill"></div>
+              <input class="video-progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="Video Progress" />
+            </div>
+            <div class="video-volume-group">
+              <button class="video-control video-control--mute" type="button" aria-label="Mute/Unmute">🔇</button>
+              <div class="video-volume-wrapper">
+                <input class="video-volume" type="range" min="0" max="1" step="0.05" value="0" aria-label="Volume" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <video muted loop playsinline preload="metadata">
+          <source src="videos/video3.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-controls">
+          <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
+          <div class="video-control-bar">
+            <div class="video-progress-container">
+              <div class="video-progress-fill"></div>
+              <input class="video-progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="Video Progress" />
+            </div>
+            <div class="video-volume-group">
+              <button class="video-control video-control--mute" type="button" aria-label="Mute/Unmute">🔇</button>
+              <div class="video-volume-wrapper">
+                <input class="video-volume" type="range" min="0" max="1" step="0.05" value="0" aria-label="Volume" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <video muted loop playsinline preload="metadata">
+          <source src="videos/video4.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-controls">
+          <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
+          <div class="video-control-bar">
+            <div class="video-progress-container">
+              <div class="video-progress-fill"></div>
+              <input class="video-progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="Video Progress" />
+            </div>
+            <div class="video-volume-group">
+              <button class="video-control video-control--mute" type="button" aria-label="Mute/Unmute">🔇</button>
+              <div class="video-volume-wrapper">
+                <input class="video-volume" type="range" min="0" max="1" step="0.05" value="0" aria-label="Volume" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <video muted loop playsinline preload="metadata">
+          <source src="videos/video5.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-controls">
+          <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
+          <div class="video-control-bar">
+            <div class="video-progress-container">
+              <div class="video-progress-fill"></div>
+              <input class="video-progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="Video Progress" />
+            </div>
+            <div class="video-volume-group">
+              <button class="video-control video-control--mute" type="button" aria-label="Mute/Unmute">🔇</button>
+              <div class="video-volume-wrapper">
+                <input class="video-volume" type="range" min="0" max="1" step="0.05" value="0" aria-label="Volume" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <video muted loop playsinline preload="metadata">
+          <source src="videos/video6.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-controls">
+          <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
+          <div class="video-control-bar">
+            <div class="video-progress-container">
+              <div class="video-progress-fill"></div>
+              <input class="video-progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="Video Progress" />
+            </div>
+            <div class="video-volume-group">
+              <button class="video-control video-control--mute" type="button" aria-label="Mute/Unmute">🔇</button>
+              <div class="video-volume-wrapper">
+                <input class="video-volume" type="range" min="0" max="1" step="0.05" value="0" aria-label="Volume" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <video muted loop playsinline preload="metadata">
+          <source src="videos/video7.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-controls">
+          <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
+          <div class="video-control-bar">
+            <div class="video-progress-container">
+              <div class="video-progress-fill"></div>
+              <input class="video-progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="Video Progress" />
+            </div>
+            <div class="video-volume-group">
+              <button class="video-control video-control--mute" type="button" aria-label="Mute/Unmute">🔇</button>
+              <div class="video-volume-wrapper">
+                <input class="video-volume" type="range" min="0" max="1" step="0.05" value="0" aria-label="Volume" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <video muted loop playsinline preload="metadata">
+          <source src="videos/video8.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        <div class="video-controls">
+          <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
+          <div class="video-control-bar">
+            <div class="video-progress-container">
+              <div class="video-progress-fill"></div>
+              <input class="video-progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="Video Progress" />
+            </div>
+            <div class="video-volume-group">
+              <button class="video-control video-control--mute" type="button" aria-label="Mute/Unmute">🔇</button>
+              <div class="video-volume-wrapper">
+                <input class="video-volume" type="range" min="0" max="1" step="0.05" value="0" aria-label="Volume" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- More examples button -->
+    <div class="work-cta-container">
+      <a href="https://drive.google.com/drive/folders/1rX6NAnp-BQwmoOSbG4fUt6BTKl_8xsli?usp=drive_link" class="work-cta" target="_blank" rel="noopener noreferrer">View More Examples</a>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ──────────────────────────────── -->
+  <section id="services">
+    <p class="section-label reveal">What I Do</p>
+    <h2 class="section-title reveal">Full-spectrum<br><em>production.</em></h2>
+
+    <!-- EDIT: add, remove, or rename service items below -->
+    <div class="services-grid reveal">
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <h3 class="service-name">Short-Form Content</h3>
+        <p class="service-desc">Reels, TikToks, and YouTube Shorts crafted for maximum engagement — punchy, fast, and optimized for every platform.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <h3 class="service-name">Long-Form Production</h3>
+        <p class="service-desc">YouTube videos, mini-documentaries, and brand stories with cinematic pacing and narrative depth.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <h3 class="service-name">Motion Graphics & Titles</h3>
+        <p class="service-desc">Custom animated titles, lower thirds, and motion elements that elevate your brand's visual identity on screen.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-num">04</div>
+        <h3 class="service-name">Color Grading</h3>
+        <p class="service-desc">From clean and commercial to moody and cinematic — professional color work that gives your footage a signature look.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-num">05</div>
+        <h3 class="service-name">Full Video Production</h3>
+        <p class="service-desc">End-to-end creative oversight — from pre-production planning to final delivery. One editor, complete vision.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-num">06</div>
+        <h3 class="service-name">Commercial & Ads</h3>
+        <p class="service-desc">High-converting video ads for brands and businesses, built around your message and engineered for results.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────────── -->
+  <section id="testimonials">
+    <p class="section-label">Client Words</p>
+    <h2 class="section-title reveal">What our<br><em>clients say.</em></h2>
+
+    <!-- EDIT: replace testimonial text, names, and roles below -->
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">Steven transformed our raw footage into something we didn't even know was possible. The pacing, the color work — everything felt intentional. Our engagement doubled after the rebrand.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AK</div>
+          <div>
+            <!-- EDIT: client name -->
+            <p class="author-name">Alex Kim</p>
+            <!-- EDIT: client role/description -->
+            <p class="author-role">YouTube Creator — 500K subscribers</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">Working with Vmedia was seamless. He understood our brand voice immediately and delivered a campaign video our whole team was proud to run across every channel.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MR</div>
+          <div>
+            <p class="author-name">Maria Reyes</p>
+            <p class="author-role">Marketing Director — Startup Brand</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">The documentary short he cut for us was shown at a regional film event. People cried. Steven has a rare ability to find the emotion in raw footage.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">DJ</div>
+          <div>
+            <p class="author-name">David Jones</p>
+            <p class="author-role">Independent Filmmaker</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- EDIT: copy a testimonial-card block above to add more reviews -->
+  </section>
+
+  <!-- ── CONTACT ────────────────────────────────── -->
+  <section id="contact">
+    <p class="section-label reveal">Get in Touch</p>
+    <h2 class="section-title reveal">Let's make<br><em>something great.</em></h2>
+
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <p>Whether you're a brand, a creator, or an agency — I'm always open to interesting projects. Reach out and let's talk about what you're building.</p>
+
+        <!-- EDIT: update your contact details below -->
+        <div class="contact-detail">
+          <a href="mailto:hello@vmedia.com">
+            <span class="contact-dot"></span>
+            hello@vmedia.com
+          </a>
+
+          <!-- EDIT: add/remove social links here -->
+          <!-- Copy this <a> block to add more social links -->
+          <a href="https://instagram.com/YOUR_HANDLE" target="_blank">
+            <span class="contact-dot"></span>
+            @vmedia — Instagram
+          </a>
+          <a href="https://tiktok.com/@YOUR_HANDLE" target="_blank">
+            <span class="contact-dot"></span>
+            @vmedia — TikTok
+          </a>
+          <a href="https://youtube.com/@YOUR_HANDLE" target="_blank">
+            <span class="contact-dot"></span>
+            Vmedia — YouTube
+          </a>
+          <!-- ADD MORE SOCIALS HERE — just copy one of the <a> blocks above -->
+
+          <a href="#">
+            <span class="contact-dot"></span>
+            Available for freelance — Philippines & Remote
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" onsubmit="return false;">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="What should I call you?" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Project Type</label>
+          <input type="text" placeholder="Short-form, long-form, commercial..." />
+        </div>
+        <div class="form-group">
+          <label>Tell me about it</label>
+          <textarea rows="4" placeholder="Describe your project, timeline, and budget..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message &nbsp;→</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer>
+    <span class="footer-logo">Vmedia</span>
+    <!-- EDIT: update copyright year or name -->
+    <span class="footer-copy">© 2025 Steven Sarreal. All rights reserved.</span>
+    <div class="footer-socials">
+      <!-- EDIT: update social links here too -->
+      <a href="https://instagram.com/YOUR_HANDLE" target="_blank">Instagram</a>
+      <a href="https://youtube.com/@YOUR_HANDLE" target="_blank">YouTube</a>
+      <a href="https://tiktok.com/@YOUR_HANDLE" target="_blank">TikTok</a>
+      <a href="https://linkedin.com/in/YOUR_HANDLE" target="_blank">LinkedIn</a>
+      <!-- ADD MORE: copy an <a> line above -->
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
