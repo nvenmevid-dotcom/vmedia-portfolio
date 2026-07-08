@@ -3,82 +3,286 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vmedia — Steven Sarreal</title>
+  <title>Steven Sarreal — Social Media Marketing Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ── NAV ─────────────────────────────────── -->
-  <nav>
-    <a href="#hero" class="nav-logo">Vmedia</a>
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Clients</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <!-- EDIT: add more nav links here if needed -->
-  </nav>
+  <!-- NAV -->
+<nav class="site-nav">
+  <a href="#hero" class="nav-logo">✦ Vmedia</a>
 
-  <!-- ── HERO ─────────────────────────────────── -->
+  <div class="tubelight-nav" aria-label="Main navigation">
+    <span class="nav-lamp" aria-hidden="true">
+      <span class="nav-lamp-line"></span>
+      <span class="nav-lamp-glow nav-lamp-glow-1"></span>
+      <span class="nav-lamp-glow nav-lamp-glow-2"></span>
+      <span class="nav-lamp-glow nav-lamp-glow-3"></span>
+    </span>
+
+    <a href="#hero" class="tube-link is-active" data-tube-nav>
+  <span class="tube-icon">⌂</span>
+  <span class="tube-text">Home</span>
+</a>
+
+<a href="#work" class="tube-link" data-tube-nav>
+  <span class="tube-icon">▣</span>
+  <span class="tube-text">Work</span>
+</a>
+
+    <a href="#results" class="tube-link" data-tube-nav>
+      <span class="tube-icon">✦</span>
+      <span class="tube-text">Results</span>
+    </a>
+
+    <a href="#cases" class="tube-link" data-tube-nav>
+      <span class="tube-icon">◈</span>
+      <span class="tube-text">Cases</span>
+    </a>
+
+    <a href="#services" class="tube-link" data-tube-nav>
+      <span class="tube-icon">◎</span>
+      <span class="tube-text">Services</span>
+    </a>
+
+    <a href="#contact" class="tube-link" data-tube-nav>
+      <span class="tube-icon">↗</span>
+      <span class="tube-text">Contact</span>
+    </a>
+  </div>
+
+  <a href="https://calendly.com/nvenmevid/meeting-with-ven" target="_blank" class="nav-cta">Book a call</a>
+</nav>
+
+  <!-- HERO — interfere.com layout: text left, desc+cta right -->
   <section id="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1 class="hero-title">
+          Content that<br>
+          never stops<br>
+          <em>growing.</em>
+        </h1>
+      </div>
+      <div class="hero-right">
+        <p class="hero-desc">
+          I build social media systems that grow brands from the ground up — strategy, content, production, and publishing, all in one.
+        </p>
+        <div class="hero-actions">
+          <a href="https://calendly.com/nvenmevid/meeting-with-ven" target="_blank" class="btn-primary">Book a call</a>
+          <a href="#work" class="btn-ghost">See my work</a>
+        </div>
+        <p class="hero-meta">Social Media · Content Creation · Video Production · Philippines</p>
+      </div>
+    </div>
+      <div class="home-about reveal">
+      <div class="home-about-copy">
+        <p class="home-about-kicker">About Vmedia</p>
+        <h2 class="home-about-title">
+          Strategy, content, and editing<br>
+          built for growth.
+        </h2>
+        <p class="home-about-desc">
+          I’m Steven, the person behind Vmedia. I help brands plan, create, edit, publish, and analyze short-form content that feels intentional and performs with purpose.
+        </p>
 
-    <!-- decorative diamond shape behind text -->
-    <div class="hero-diamond"></div>
+        <div class="home-about-points">
+          <span>Social media strategy</span>
+          <span>Short-form production</span>
+          <span>Video editing</span>
+          <span>Content performance</span>
+        </div>
 
-    <!-- corner brackets -->
-    <div class="hero-corner hero-corner--tl"></div>
-    <div class="hero-corner hero-corner--tr"></div>
-    <div class="hero-corner hero-corner--bl"></div>
-    <div class="hero-corner hero-corner--br"></div>
+        <a href="#contact" class="home-about-cta">Let’s talk</a>
+      </div>
 
-    <!-- side labels -->
-    <span class="hero-side-label hero-side-label--left">Philippines &nbsp;·&nbsp; Remote</span>
-    <span class="hero-side-label hero-side-label--right">Est. 2022 &nbsp;·&nbsp; Vmedia</span>
+      <div class="about-accordion" aria-label="Vmedia about accordion">
+        <article class="about-accordion-item is-active" data-about-accordion>
+          <img src="brand_assets/photo/my_photo.png" alt="Steven Sarreal of Vmedia" />
+          <div class="about-accordion-overlay"></div>
+          <span class="about-accordion-title">Ven</span>
+        </article>
 
-    <!-- center content -->
-    <div class="hero-content">
-      <!-- EDIT: change eyebrow text below -->
-      <p class="hero-eyebrow">Video Editor &nbsp;·&nbsp; Visual Storyteller</p>
+        <article class="about-accordion-item" data-about-accordion>
+  <img src="brand_assets/about/editing.png" alt="Vmedia editing workflow" />
+  <div class="about-accordion-overlay"></div>
+  <span class="about-accordion-title">Editing</span>
+</article>
 
-      <!-- EDIT: change your name/title below -->
-      <h1 class="hero-title">
-        Crafting Visuals<br>
-        <em>That Move.</em>
-      </h1>
+<article class="about-accordion-item" data-about-accordion>
+  <img src="brand_assets/about/videoshoot.png" alt="Vmedia video shoot process" />
+  <div class="about-accordion-overlay"></div>
+  <span class="about-accordion-title">Video Shoot</span>
+</article>
 
-      <!-- EDIT: change subtitle below -->
-      <p class="hero-sub">
-        From short-form content to cinematic brand films —<br>
-        stories told with intention, by Vmedia.
-      </p>
+<article class="about-accordion-item" data-about-accordion>
+  <img src="brand_assets/about/strategy.png" alt="Vmedia content strategy planning" />
+  <div class="about-accordion-overlay"></div>
+  <span class="about-accordion-title">Strategy</span>
+</article>
 
-      <!-- EDIT: change button text or link -->
-      <a href="#work" class="hero-cta">View My Work</a>
+<article class="about-accordion-item" data-about-accordion>
+  <img src="brand_assets/about/analytics.png" alt="Vmedia content analytics and performance" />
+  <div class="about-accordion-overlay"></div>
+  <span class="about-accordion-title">Analytics</span>
+</article>
+      </div>
     </div>
   </section>
+<!-- HOME TO WORK TRANSITION -->
+<div class="testimonial-slider-divider" aria-hidden="true">
+  <div class="testimonial-slider-mask">
+    <div class="testimonial-slider-track">
 
-  <!-- ── WORK ─────────────────────────────────── -->
+      <div class="testimonial-slider-group">
+  <article class="mini-testimonial-card">
+    <p class="mini-testimonial-text">
+      “Built for brands that need consistent short-form content with a clear strategy, not random posting.”
+    </p>
+    <div class="mini-testimonial-footer">
+      <div class="mini-testimonial-person">
+        <div class="mini-testimonial-avatar">01</div>
+        <div>
+          <p class="mini-testimonial-name">Content Strategy</p>
+          <p class="mini-testimonial-role">Planning · Research · Direction</p>
+        </div>
+      </div>
+      <div class="mini-testimonial-logo">VMEDIA</div>
+    </div>
+  </article>
+
+  <article class="mini-testimonial-card">
+    <p class="mini-testimonial-text">
+      “From concept to posting, every video is shaped around hooks, pacing, platform behavior, and audience fit.”
+    </p>
+    <div class="mini-testimonial-footer">
+      <div class="mini-testimonial-person">
+        <div class="mini-testimonial-avatar">02</div>
+        <div>
+          <p class="mini-testimonial-name">Video Production</p>
+          <p class="mini-testimonial-role">Shoot · Edit · Publish</p>
+        </div>
+      </div>
+      <div class="mini-testimonial-logo">VMEDIA</div>
+    </div>
+  </article>
+
+  <article class="mini-testimonial-card">
+    <p class="mini-testimonial-text">
+      “Content is treated as a system: plan the idea, execute the asset, study the numbers, then improve the next post.”
+    </p>
+    <div class="mini-testimonial-footer">
+      <div class="mini-testimonial-person">
+        <div class="mini-testimonial-avatar">03</div>
+        <div>
+          <p class="mini-testimonial-name">Growth Workflow</p>
+          <p class="mini-testimonial-role">Content · Testing · Analytics</p>
+        </div>
+      </div>
+      <div class="mini-testimonial-logo">VMEDIA</div>
+    </div>
+  </article>
+
+  <article class="mini-testimonial-card">
+    <p class="mini-testimonial-text">
+      “Designed for small brands, creators, and businesses that want stronger content direction and cleaner execution.”
+    </p>
+    <div class="mini-testimonial-footer">
+      <div class="mini-testimonial-person">
+        <div class="mini-testimonial-avatar">04</div>
+        <div>
+          <p class="mini-testimonial-name">Brand Support</p>
+          <p class="mini-testimonial-role">Social Media · Creative Execution</p>
+        </div>
+      </div>
+      <div class="mini-testimonial-logo">VMEDIA</div>
+    </div>
+  </article>
+</div>
+
+<div class="testimonial-slider-group">
+  <article class="mini-testimonial-card">
+    <p class="mini-testimonial-text">
+      “Built for brands that need consistent short-form content with a clear strategy, not random posting.”
+    </p>
+    <div class="mini-testimonial-footer">
+      <div class="mini-testimonial-person">
+        <div class="mini-testimonial-avatar">01</div>
+        <div>
+          <p class="mini-testimonial-name">Content Strategy</p>
+          <p class="mini-testimonial-role">Planning · Research · Direction</p>
+        </div>
+      </div>
+      <div class="mini-testimonial-logo">VMEDIA</div>
+    </div>
+  </article>
+
+  <article class="mini-testimonial-card">
+    <p class="mini-testimonial-text">
+      “From concept to posting, every video is shaped around hooks, pacing, platform behavior, and audience fit.”
+    </p>
+    <div class="mini-testimonial-footer">
+      <div class="mini-testimonial-person">
+        <div class="mini-testimonial-avatar">02</div>
+        <div>
+          <p class="mini-testimonial-name">Video Production</p>
+          <p class="mini-testimonial-role">Shoot · Edit · Publish</p>
+        </div>
+      </div>
+      <div class="mini-testimonial-logo">VMEDIA</div>
+    </div>
+  </article>
+
+  <article class="mini-testimonial-card">
+    <p class="mini-testimonial-text">
+      “Content is treated as a system: plan the idea, execute the asset, study the numbers, then improve the next post.”
+    </p>
+    <div class="mini-testimonial-footer">
+      <div class="mini-testimonial-person">
+        <div class="mini-testimonial-avatar">03</div>
+        <div>
+          <p class="mini-testimonial-name">Growth Workflow</p>
+          <p class="mini-testimonial-role">Content · Testing · Analytics</p>
+        </div>
+      </div>
+      <div class="mini-testimonial-logo">VMEDIA</div>
+    </div>
+  </article>
+
+  <article class="mini-testimonial-card">
+    <p class="mini-testimonial-text">
+      “Designed for small brands, creators, and businesses that want stronger content direction and cleaner execution.”
+    </p>
+    <div class="mini-testimonial-footer">
+      <div class="mini-testimonial-person">
+        <div class="mini-testimonial-avatar">04</div>
+        <div>
+          <p class="mini-testimonial-name">Brand Support</p>
+          <p class="mini-testimonial-role">Social Media · Creative Execution</p>
+        </div>
+      </div>
+      <div class="mini-testimonial-logo">VMEDIA</div>
+    </div>
+  </article>
+</div>
+
+    </div>
+  </div>
+</div>
+
+<!-- WORK / VIDEO GRID — FROZEN — DO NOT MODIFY STRUCTURE -->
   <section id="work">
     <div class="section-header">
       <p class="section-label">Selected Work</p>
-      <!-- EDIT: change section title -->
       <h2 class="section-title">My Work</h2>
     </div>
-
-    <!-- EDIT: replace local video file names with your own files -->
-    <!-- Put MP4 files in videos/video1.mp4, videos/video2.mp4, etc. -->
     <div class="video-grid">
-
       <div class="video-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="videos/video1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <video muted loop playsinline preload="metadata"><source src="videos/video1.mp4" type="video/mp4" /></video>
         <div class="video-overlay"></div>
         <div class="video-controls">
           <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
@@ -96,12 +300,8 @@
           </div>
         </div>
       </div>
-
       <div class="video-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="videos/video2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <video muted loop playsinline preload="metadata"><source src="videos/video2.mp4" type="video/mp4" /></video>
         <div class="video-overlay"></div>
         <div class="video-controls">
           <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
@@ -119,12 +319,8 @@
           </div>
         </div>
       </div>
-
       <div class="video-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="videos/video3.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <video muted loop playsinline preload="metadata"><source src="videos/video3.mp4" type="video/mp4" /></video>
         <div class="video-overlay"></div>
         <div class="video-controls">
           <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
@@ -142,12 +338,8 @@
           </div>
         </div>
       </div>
-
       <div class="video-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="videos/video4.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <video muted loop playsinline preload="metadata"><source src="videos/video4.mp4" type="video/mp4" /></video>
         <div class="video-overlay"></div>
         <div class="video-controls">
           <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
@@ -165,12 +357,8 @@
           </div>
         </div>
       </div>
-
       <div class="video-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="videos/video5.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <video muted loop playsinline preload="metadata"><source src="videos/video5.mp4" type="video/mp4" /></video>
         <div class="video-overlay"></div>
         <div class="video-controls">
           <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
@@ -188,12 +376,8 @@
           </div>
         </div>
       </div>
-
       <div class="video-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="videos/video6.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <video muted loop playsinline preload="metadata"><source src="videos/video6.mp4" type="video/mp4" /></video>
         <div class="video-overlay"></div>
         <div class="video-controls">
           <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
@@ -211,12 +395,8 @@
           </div>
         </div>
       </div>
-
       <div class="video-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="videos/video7.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <video muted loop playsinline preload="metadata"><source src="videos/video7.mp4" type="video/mp4" /></video>
         <div class="video-overlay"></div>
         <div class="video-controls">
           <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
@@ -234,12 +414,8 @@
           </div>
         </div>
       </div>
-
       <div class="video-card">
-        <video muted loop playsinline autoplay preload="auto">
-          <source src="videos/video8.MP4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <video muted loop playsinline preload="metadata"><source src="videos/video8.MP4" type="video/mp4" /></video>
         <div class="video-overlay"></div>
         <div class="video-controls">
           <button class="video-control video-control--center" type="button" aria-label="Play/Pause">▶</button>
@@ -257,173 +433,195 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="work-cta-container">
+      <a href="https://drive.google.com/drive/folders/1rX6NAnp-BQwmoOSbG4fUt6BTKl_8xsli?usp=drive_link" class="work-cta" target="_blank" rel="noopener noreferrer">View more examples</a>
+    </div>
+  </section>
+  <!-- END FROZEN SECTION -->
+    <!-- CONTENT RESULTS -->
+<section id="results">
+  <div class="section-header reveal">
+    <p class="section-label">Content Results</p>
+    <h2 class="section-title">Proof that the content<br><em>can move numbers.</em></h2>
+  </div>
 
+  <div class="results-strip reveal">
+    <div class="result-pill">
+      <span class="result-pill-number">58M+</span>
+      <span class="result-pill-label">Total featured views across selected content</span>
     </div>
 
-    <!-- More examples button -->
-    <div class="work-cta-container">
-      <a href="https://drive.google.com/drive/folders/1rX6NAnp-BQwmoOSbG4fUt6BTKl_8xsli?usp=drive_link" class="work-cta" target="_blank" rel="noopener noreferrer">View More Examples</a>
+    <div class="result-pill">
+      <span class="result-pill-number">16 → 7K+</span>
+      <span class="result-pill-label">Instagram followers grown in 2 months</span>
+    </div>
+
+    <div class="result-pill">
+      <span class="result-pill-number">50M+</span>
+      <span class="result-pill-label">Client content views generated</span>
+    </div>
+
+    <div class="result-pill">
+      <span class="result-pill-number">3+</span>
+      <span class="result-pill-label">Years professional experience</span>
+    </div>
+  </div>
+
+  <div class="results-note reveal">
+    <p>
+      Selected performance across personal content, Berry Crafts PH, and GoodDay Manila campaigns.
+      Highlights include 57.1M personal viral views, 1M Berry Crafts views, 1M top content views, and GoodDay Manila content growth.
+    </p>
+  </div>
+</section>
+
+  <!-- CASE STUDIES -->
+  <section id="cases">
+    <div class="section-header reveal">
+      <p class="section-label">Case Studies</p>
+      <h2 class="section-title">Brands I've grown<br><em>from scratch.</em></h2>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card reveal">
+        <div class="case-image-wrap">
+          <img src="brand_assets/analytics/gooddaymanila_beforeafter.png" alt="GoodDay Manila growth" loading="lazy" onerror="this.parentElement.classList.add('no-image')" />
+          <div class="case-image-fallback"><span>GoodDay Manila — Before / After</span></div>
+        </div>
+        <div class="case-info">
+          <div class="case-tags">
+            <span class="tag">Food Delivery</span>
+            <span class="tag">Instagram Reels</span>
+            <span class="tag">BGC Manila</span>
+          </div>
+          <h3 class="case-title">GoodDay Manila</h3>
+          <p class="case-desc">Gourmet breakfast gift box brand. Built their entire social media presence — strategy, shooting, editing, influencer collabs, and giveaway campaigns.</p>
+          <div class="case-results">
+            <div class="case-result">
+              <span class="result-num">100 → 7,341</span>
+              <span class="result-label">Followers · Instagram</span>
+            </div>
+            <div class="case-result">
+              <span class="result-num">237K+</span>
+              <span class="result-label">Views · Top Video</span>
+            </div>
+          </div>
+          <p class="case-what">Research · Strategy · Scriptwriting · Shooting · Editing · Publishing · Influencer Collabs</p>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <div class="case-image-wrap">
+          <img src="brand_assets/analytics/berrycrafts_beforeafter.png" alt="Berry Crafts growth" loading="lazy" onerror="this.parentElement.classList.add('no-image')" />
+          <div class="case-image-fallback"><span>Berry Crafts PH — Before / After</span></div>
+        </div>
+        <div class="case-info">
+          <div class="case-tags">
+            <span class="tag">Arts & Crafts</span>
+            <span class="tag">Instagram Reels</span>
+            <span class="tag">Retail</span>
+          </div>
+          <h3 class="case-title">Berry Crafts PH</h3>
+          <p class="case-desc">Prints, crafts, vinyl, stickers and sublimation store. Developed a short-form content system that positioned the brand and drove consistent follower growth.</p>
+          <div class="case-results">
+            <div class="case-result">
+              <span class="result-num">16 → 2,291</span>
+              <span class="result-label">Followers · Instagram</span>
+            </div>
+            <div class="case-result">
+              <span class="result-num">143K+</span>
+              <span class="result-label">Views · Top Video</span>
+            </div>
+          </div>
+          <p class="case-what">Research · Content Planning · Scriptwriting · Production · Editing · Publishing</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ── SERVICES ──────────────────────────────── -->
+  <!-- SERVICES -->
   <section id="services">
-    <p class="section-label reveal">What I Do</p>
-    <h2 class="section-title reveal">Full-spectrum<br><em>production.</em></h2>
-
-    <!-- EDIT: add, remove, or rename service items below -->
+    <div class="section-header reveal">
+      <p class="section-label">What I Do</p>
+      <h2 class="section-title">End-to-end<br><em>content pipeline.</em></h2>
+    </div>
     <div class="services-grid reveal">
       <div class="service-item">
         <div class="service-num">01</div>
-        <h3 class="service-name">Short-Form Content</h3>
-        <p class="service-desc">Reels, TikToks, and YouTube Shorts crafted for maximum engagement — punchy, fast, and optimized for every platform.</p>
+        <h3 class="service-name">Social Media Management</h3>
+        <p class="service-desc">Full account management — strategy, content calendar, posting, and growth tracking across Instagram, TikTok, and Facebook.</p>
       </div>
       <div class="service-item">
         <div class="service-num">02</div>
-        <h3 class="service-name">Long-Form Production</h3>
-        <p class="service-desc">YouTube videos, mini-documentaries, and brand stories with cinematic pacing and narrative depth.</p>
+        <h3 class="service-name">Content Strategy</h3>
+        <p class="service-desc">Competitor research, trend analysis, and content planning built around what actually performs — not just what looks good.</p>
       </div>
       <div class="service-item">
         <div class="service-num">03</div>
-        <h3 class="service-name">Motion Graphics & Titles</h3>
-        <p class="service-desc">Custom animated titles, lower thirds, and motion elements that elevate your brand's visual identity on screen.</p>
+        <h3 class="service-name">Short-Form Video Production</h3>
+        <p class="service-desc">Reels and TikToks from concept to publish — scriptwriting, shooting, editing, and captions optimized per platform.</p>
       </div>
       <div class="service-item">
         <div class="service-num">04</div>
-        <h3 class="service-name">Color Grading</h3>
-        <p class="service-desc">From clean and commercial to moody and cinematic — professional color work that gives your footage a signature look.</p>
+        <h3 class="service-name">Brand Growth System</h3>
+        <p class="service-desc">A proven pipeline I built and sold as a B2B service — research, scripting, production, posting, and growth strategy.</p>
       </div>
       <div class="service-item">
         <div class="service-num">05</div>
-        <h3 class="service-name">Full Video Production</h3>
-        <p class="service-desc">End-to-end creative oversight — from pre-production planning to final delivery. One editor, complete vision.</p>
+        <h3 class="service-name">Scriptwriting & Shotlisting</h3>
+        <p class="service-desc">Research-backed scripts and detailed shot lists so every shoot is efficient and every video has a clear purpose and hook.</p>
       </div>
       <div class="service-item">
         <div class="service-num">06</div>
-        <h3 class="service-name">Commercial & Ads</h3>
-        <p class="service-desc">High-converting video ads for brands and businesses, built around your message and engineered for results.</p>
+        <h3 class="service-name">Video Editing</h3>
+        <p class="service-desc">Professional short-form and long-form editing in Premiere Pro, After Effects, and CapCut — fast turnaround, clean execution.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── TESTIMONIALS ───────────────────────────── -->
-  <section id="testimonials">
-    <p class="section-label">Client Words</p>
-    <h2 class="section-title reveal">What our<br><em>clients say.</em></h2>
-
-    <!-- EDIT: replace testimonial text, names, and roles below -->
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <p class="testimonial-text">Steven transformed our raw footage into something we didn't even know was possible. The pacing, the color work — everything felt intentional. Our engagement doubled after the rebrand.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">AK</div>
-          <div>
-            <!-- EDIT: client name -->
-            <p class="author-name">Alex Kim</p>
-            <!-- EDIT: client role/description -->
-            <p class="author-role">YouTube Creator — 500K subscribers</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal">
-        <p class="testimonial-text">Working with Vmedia was seamless. He understood our brand voice immediately and delivered a campaign video our whole team was proud to run across every channel.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">MR</div>
-          <div>
-            <p class="author-name">Maria Reyes</p>
-            <p class="author-role">Marketing Director — Startup Brand</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal">
-        <p class="testimonial-text">The documentary short he cut for us was shown at a regional film event. People cried. Steven has a rare ability to find the emotion in raw footage.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">DJ</div>
-          <div>
-            <p class="author-name">David Jones</p>
-            <p class="author-role">Independent Filmmaker</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- EDIT: copy a testimonial-card block above to add more reviews -->
-  </section>
-
-  <!-- ── CONTACT ────────────────────────────────── -->
+  <!-- CONTACT — no form, just CTA options -->
   <section id="contact">
-    <p class="section-label reveal">Get in Touch</p>
-    <h2 class="section-title reveal">Let's make<br><em>something great.</em></h2>
-
-    <div class="contact-inner">
-      <div class="contact-info reveal">
-        <p>Whether you're a brand, a creator, or an agency — I'm always open to interesting projects. Reach out and let's talk about what you're building.</p>
-
-        <!-- EDIT: update your contact details below -->
-        <div class="contact-detail">
-          <a href="mailto:hello@vmedia.com">
-            <span class="contact-dot"></span>
-            hello@vmedia.com
-          </a>
-
-          <!-- EDIT: add/remove social links here -->
-          <!-- Copy this <a> block to add more social links -->
-          <a href="https://instagram.com/YOUR_HANDLE" target="_blank">
-            <span class="contact-dot"></span>
-            @vmedia — Instagram
-          </a>
-          <a href="https://tiktok.com/@YOUR_HANDLE" target="_blank">
-            <span class="contact-dot"></span>
-            @vmedia — TikTok
-          </a>
-          <a href="https://youtube.com/@YOUR_HANDLE" target="_blank">
-            <span class="contact-dot"></span>
-            Vmedia — YouTube
-          </a>
-          <!-- ADD MORE SOCIALS HERE — just copy one of the <a> blocks above -->
-
-          <a href="#">
-            <span class="contact-dot"></span>
-            Available for freelance — Philippines & Remote
-          </a>
+    <div class="contact-inner reveal">
+      <div class="contact-left">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title">Let's build<br><em>something that grows.</em></h2>
+        <p class="contact-desc">Open to social media management roles, content partnerships, and freelance projects. Pick how you'd like to connect.</p>
+      </div>
+      <div class="contact-right">
+        <a href="https://calendly.com/nvenmevid/meeting-with-ven" target="_blank" class="contact-cta-card">
+          <div class="contact-cta-icon">📅</div>
+          <div>
+            <p class="contact-cta-title">Book a call</p>
+            <p class="contact-cta-desc">Schedule a free 30-min discovery call via Calendly</p>
+          </div>
+          <span class="contact-cta-arrow">→</span>
+        </a>
+        <a href="https://www.instagram.com/editbyvmedia/" target="_blank" class="contact-cta-card">
+          <div class="contact-cta-icon">✉</div>
+          <div>
+            <p class="contact-cta-title">DM on Instagram</p>
+            <p class="contact-cta-desc">Reach me directly at @editbyvmedia</p>
+          </div>
+          <span class="contact-cta-arrow">→</span>
+        </a>
+        <div class="contact-links-row">
+          <a href="mailto:nvenmevid@gmail.com" class="contact-link">nvenmevid@gmail.com</a>
+          <a href="https://www.linkedin.com/in/ven-sarreal-366b8028b/" target="_blank" class="contact-link">LinkedIn</a>
+          <a href="https://www.tiktok.com/@nvenm_edit" target="_blank" class="contact-link">TikTok</a>
+          <a href="https://www.facebook.com/vvvennn" target="_blank" class="contact-link">Facebook</a>
         </div>
       </div>
-
-      <form class="contact-form reveal" onsubmit="return false;">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="What should I call you?" />
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="your@email.com" />
-        </div>
-        <div class="form-group">
-          <label>Project Type</label>
-          <input type="text" placeholder="Short-form, long-form, commercial..." />
-        </div>
-        <div class="form-group">
-          <label>Tell me about it</label>
-          <textarea rows="4" placeholder="Describe your project, timeline, and budget..."></textarea>
-        </div>
-        <button type="submit" class="btn-submit">Send Message &nbsp;→</button>
-      </form>
     </div>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────── -->
+  <!-- FOOTER -->
   <footer>
     <span class="footer-logo">Vmedia</span>
-    <!-- EDIT: update copyright year or name -->
-    <span class="footer-copy">© 2025 Steven Sarreal. All rights reserved.</span>
+    <span class="footer-copy">© 2026 · Philippines · Available Remote</span>
     <div class="footer-socials">
-      <!-- EDIT: update social links here too -->
-      <a href="https://instagram.com/YOUR_HANDLE" target="_blank">Instagram</a>
-      <a href="https://youtube.com/@YOUR_HANDLE" target="_blank">YouTube</a>
-      <a href="https://tiktok.com/@YOUR_HANDLE" target="_blank">TikTok</a>
-      <a href="https://linkedin.com/in/YOUR_HANDLE" target="_blank">LinkedIn</a>
-      <!-- ADD MORE: copy an <a> line above -->
+      <a href="https://www.instagram.com/editbyvmedia/" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@nvenm_edit" target="_blank">TikTok</a>
+      <a href="https://www.linkedin.com/in/ven-sarreal-366b8028b/" target="_blank">LinkedIn</a>
+      <a href="https://www.facebook.com/vvvennn" target="_blank">Facebook</a>
     </div>
   </footer>
 

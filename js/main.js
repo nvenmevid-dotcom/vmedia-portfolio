@@ -15,34 +15,126 @@ const observer = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => observer.observe(el));
 
-/* ── Smooth nav shrink on scroll ── */
-const nav = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) {
-    nav.style.padding = '1rem 4rem';
-  } else {
-    nav.style.padding = '1.5rem 4rem';
+/* ── Tubelight navbar active animation ── */
+const nav = document.querySelector('.site-nav');
+const tubeNav = document.querySelector('.tubelight-nav');
+const tubeLinks = document.querySelectorAll('[data-tube-nav]');
+
+let isNavClickScrolling = false;
+let navClickTimeout;
+
+const moveNavLamp = (activeLink) => {
+  if (!tubeNav || !activeLink) return;
+
+  const navRect = tubeNav.getBoundingClientRect();
+  const linkRect = activeLink.getBoundingClientRect();
+
+  tubeNav.style.setProperty('--lamp-x', `${linkRect.left - navRect.left - 4}px`);
+  tubeNav.style.setProperty('--lamp-width', `${linkRect.width}px`);
+
+  tubeLinks.forEach(link => link.classList.remove('is-active'));
+  activeLink.classList.add('is-active');
+};
+
+const setActiveTubeLink = (hash) => {
+  const targetLink = Array.from(tubeLinks).find(link => link.getAttribute('href') === hash);
+  if (targetLink) moveNavLamp(targetLink);
+};
+
+const getCurrentSectionHash = () => {
+  if (!tubeLinks.length) return '#hero';
+
+  const pageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 12;
+
+  if (pageBottom) {
+    return '#contact';
   }
-});
 
-/* ── Active nav link highlight ── */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
+  let currentHash = '#hero';
+  const scanPoint = window.scrollY + window.innerHeight * 0.34;
 
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute('id');
+  tubeLinks.forEach(link => {
+    const hash = link.getAttribute('href');
+    const section = document.querySelector(hash);
+
+    if (!section) return;
+
+    const sectionTop = section.offsetTop;
+
+    if (scanPoint >= sectionTop) {
+      currentHash = hash;
     }
   });
 
-  navLinks.forEach(link => {
-    link.style.color = '';
-    if (link.getAttribute('href') === `#${current}`) {
-      link.style.color = 'var(--accent-dark)';
-    }
+  return currentHash;
+};
+
+const updateTubeNavOnScroll = () => {
+  if (nav) {
+    nav.classList.toggle('is-scrolled', window.scrollY > 24);
+  }
+
+  if (!tubeLinks.length || isNavClickScrolling) return;
+
+  const currentHash = getCurrentSectionHash();
+  setActiveTubeLink(currentHash);
+};
+
+tubeLinks.forEach(link => {
+  link.addEventListener('click', (event) => {
+    const hash = link.getAttribute('href');
+    const targetSection = document.querySelector(hash);
+
+    if (!targetSection) return;
+
+    event.preventDefault();
+
+    clearTimeout(navClickTimeout);
+    isNavClickScrolling = true;
+
+    moveNavLamp(link);
+
+    targetSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    history.pushState(null, '', hash);
+
+    navClickTimeout = setTimeout(() => {
+      isNavClickScrolling = false;
+      updateTubeNavOnScroll();
+    }, 950);
+  });
+});
+
+window.addEventListener('load', () => {
+  const hashLink = Array.from(tubeLinks).find(link => link.getAttribute('href') === window.location.hash);
+  const activeLink = hashLink || document.querySelector('.tube-link.is-active') || tubeLinks[0];
+
+  moveNavLamp(activeLink);
+  updateTubeNavOnScroll();
+});
+
+window.addEventListener('resize', () => {
+  const activeLink = document.querySelector('.tube-link.is-active') || tubeLinks[0];
+  moveNavLamp(activeLink);
+});
+
+window.addEventListener('scroll', updateTubeNavOnScroll, { passive: true });
+
+/* ── Home about image accordion ── */
+const aboutAccordionItems = document.querySelectorAll('[data-about-accordion]');
+
+aboutAccordionItems.forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    aboutAccordionItems.forEach(card => card.classList.remove('is-active'));
+    item.classList.add('is-active');
+  });
+
+  item.addEventListener('focusin', () => {
+    aboutAccordionItems.forEach(card => card.classList.remove('is-active'));
+    item.classList.add('is-active');
   });
 });
 
@@ -65,13 +157,38 @@ const volumeIcons = {
   `
 };
 
+/* ── Smart video loading/playback ── */
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const card = entry.target;
+    const video = card.querySelector('video');
+
+    if (!video) return;
+
+    if (entry.isIntersecting) {
+      video.preload = 'auto';
+      video.play().catch(() => {
+        console.log('Autoplay blocked until user interaction');
+      });
+    } else {
+      video.pause();
+    }
+  });
+}, {
+  rootMargin: '250px 0px',
+  threshold: 0.15
+});
+
 videoCards.forEach(card => {
   const video = card.querySelector('video');
-  video.preload = 'auto';
-  video.load();
-  video.play().catch(() => {
-    console.log('Autoplay blocked for video');
-  });
+
+  if (!video) return;
+
+  video.muted = true;
+  video.volume = 0;
+  video.preload = 'metadata';
+
+  videoObserver.observe(card);
 });
 
 // Set up video controls for each card

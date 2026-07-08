@@ -1,0 +1,18 @@
+# Local assistant/project notes
+CLAUDE.md
+
+# Local backup files
+*-backup-*
+*_backup_*
+*.zip
+
+# Duplicate/archive project folders
+vmedia-portfolio/
+_archive_duplicate_vmedia_portfolio/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
