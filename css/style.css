@@ -2966,3 +2966,11 @@ flex-direction: column;
       center;
   }
 }
+
+/* ============================================
+   TEMPORARILY HIDE SLIDING WORKFLOW CARDS
+   ============================================ */
+
+.testimonial-slider-divider {
+  display: none !important;
+}
