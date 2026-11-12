@@ -1,0 +1,32 @@
+/* VEN_NINO_POLISH_V2: Scoped refinements only. Original site CSS untouched. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  #hero.vn-hero .vn-portrait {
+    transform: perspective(1100px) rotate(7deg);
+    transform-origin: center 62%;
+    will-change: transform;
+  }
+  #hero.vn-hero .vn-portrait:hover {
+    box-shadow: 0 33px 74px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.12);
+  }
+}
+#results.vn-gallery {
+  padding-top: clamp(56px,7vw,96px);
+  border-top: 1px solid #1e1e1e;
+}
+#results.vn-gallery .vn-gallery-head {
+  margin-bottom: 20px;
+}
+#results.vn-gallery .vn-gallery-description {
+  max-width: 475px;
+  margin: 16px 0 0;
+  color: #a6a6a2;
+  font-size: 12px;
+  line-height: 1.8;
+}
+@media(max-width:640px){
+  #results.vn-gallery { padding-top: 58px; }
+  #results.vn-gallery .vn-gallery-description { font-size: 12px; }
+}
+@media(prefers-reduced-motion:reduce){
+  #hero.vn-hero .vn-portrait { transform: none !important;will-change:auto; }
+}

@@ -1,0 +1,48 @@
+/* Ven Sarreal | DRAFT | Minimal What I Do + Tools section
+   Strictly targets #services. Does not alter hero, work players, gallery or scrolling. */
+body.ven-portfolio #services .vp-compact-tools {
+  display:grid;
+  grid-template-columns:minmax(145px, .75fr) minmax(0, 2fr);
+  align-items:center;
+  gap:28px;
+  margin-top:18px;
+  padding:24px 28px;
+  border:1px solid #272727;
+  border-radius:5px;
+  background:#060606;
+}
+body.ven-portfolio #services .vp-compact-tools-label .vp-eyebrow { margin:0 0 9px; }
+body.ven-portfolio #services .vp-compact-tools-label h3 {
+  color:#e7e7e7;
+  margin:0;
+  font:500 clamp(17px,1.8vw,23px)/1.2 var(--vp-sans,'Inter',sans-serif);
+  letter-spacing:-.045em;
+}
+body.ven-portfolio #services .vp-compact-tools-primary {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  padding:0;
+  margin:0 0 10px;
+  list-style:none;
+}
+body.ven-portfolio #services .vp-compact-tools-primary li {
+  padding:8px 13px;
+  border:1px solid #303030;
+  border-radius:4px;
+  color:#dedede;
+  background:#101010;
+  font:500 11px/1.35 var(--vp-mono,monospace);
+  white-space:nowrap;
+}
+body.ven-portfolio #services .vp-compact-tools-content>p {
+  margin:0;
+  color:#8c8c8c;
+  font:400 11px/1.65 var(--vp-sans,'Inter',sans-serif);
+}
+@media(max-width:700px){
+  body.ven-portfolio #services .vp-compact-tools {grid-template-columns:1fr;gap:18px;padding:22px 20px;margin-top:14px}
+  body.ven-portfolio #services .vp-compact-tools-primary li {font-size:10px;padding:7px 10px}
+}
+@media(prefers-reduced-motion:reduce){body.ven-portfolio #services .vp-compact-tools * {transition:none !important}}

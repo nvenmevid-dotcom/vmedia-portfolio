@@ -1,0 +1,19 @@
+/* VEN_PORTFOLIO_SCROLL_PERF_V1 — DRAFT-only, scoped to existing site. */
+/* Never animate layout or video dimensions during scrolling. */
+html.ven-scroll-v5 { scroll-behavior: auto !important; }
+html.lenis, html.lenis body { height: auto; }
+html.lenis.lenis-smooth { scroll-behavior: auto !important; }
+html.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+html.lenis.lenis-stopped { overflow: hidden; }
+html.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* Keep anchored content clear of the fixed header on any scroll engine. */
+#hero, #work, #featured, #results, #about, #process, #services, #toolkit, #contact {
+  scroll-margin-top: 88px;
+}
+/* The background video and coverflow already have their own compositing rules.
+   Avoid global will-change and large-scale effects on the page itself. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  .vn-cursor { display: none !important; }
+}

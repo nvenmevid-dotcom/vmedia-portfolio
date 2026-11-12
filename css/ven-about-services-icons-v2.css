@@ -1,0 +1,89 @@
+/* Ven Sarreal — targeted About -> What I Do + Tools layout (DRAFT only).
+   Deliberately does not style hero, My Work, Results, or scrolling. */
+body.ven-portfolio #services .vp-compact-tools.vp-tool-icons-panel {
+  display:block;
+  margin-top:24px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+body.ven-portfolio #services .vp-tool-icons-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  padding:5px 0 18px;
+}
+body.ven-portfolio #services .vp-tool-icons-heading .vp-eyebrow {margin:0 0 8px;}
+body.ven-portfolio #services .vp-tool-icons-heading h3 {
+  margin:0;
+  color:#ededed;
+  font:500 clamp(19px,2.1vw,28px)/1.18 var(--vp-sans,'Inter',sans-serif);
+  letter-spacing:-.05em;
+}
+body.ven-portfolio #services .vp-tool-icons-heading p.vp-tool-intro {
+  margin:0;
+  color:#858585;
+  max-width:350px;
+  font:400 12px/1.6 var(--vp-sans,'Inter',sans-serif);
+  text-align:right;
+}
+body.ven-portfolio #services .vp-tool-icons-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  margin:0;
+  padding:0;
+  border:1px solid #272727;
+  border-radius:5px;
+  overflow:hidden;
+  list-style:none;
+  background:#070707;
+}
+body.ven-portfolio #services .vp-tool-icons-grid li {
+  display:flex;
+  min-width:0;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:9px;
+  min-height:154px;
+  padding:22px 10px;
+  text-align:center;
+  border-right:1px solid #272727;
+  transition:background-color .24s ease;
+}
+body.ven-portfolio #services .vp-tool-icons-grid li:nth-child(4n) {border-right:0;}
+body.ven-portfolio #services .vp-tool-icons-grid li:nth-child(-n+4) {border-bottom:1px solid #272727;}
+@media(hover:hover){ body.ven-portfolio #services .vp-tool-icons-grid li:hover {background:#101010;} }
+body.ven-portfolio #services .vp-tool-icons-grid img {
+  display:block;
+  height:46px;
+  width:46px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+body.ven-portfolio #services .vp-tool-icons-grid strong {
+  display:block;
+  max-width:100%;
+  color:#e9e9e9;
+  font:600 12px/1.3 var(--vp-mono,monospace);
+  overflow-wrap:anywhere;
+}
+body.ven-portfolio #services .vp-tool-icons-grid small {
+  display:block;
+  color:#898989;
+  font:400 11px/1.35 var(--vp-sans,'Inter',sans-serif);
+}
+@media(max-width:850px){
+  body.ven-portfolio #services .vp-tool-icons-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  body.ven-portfolio #services .vp-tool-icons-grid li:nth-child(4n) {border-right:1px solid #272727;}
+  body.ven-portfolio #services .vp-tool-icons-grid li:nth-child(2n) {border-right:0;}
+  body.ven-portfolio #services .vp-tool-icons-grid li:nth-child(-n+6) {border-bottom:1px solid #272727;}
+}
+@media(max-width:650px){
+  body.ven-portfolio #services .vp-tool-icons-heading {display:block;}
+  body.ven-portfolio #services .vp-tool-icons-heading p.vp-tool-intro {margin-top:8px;text-align:left;}
+  body.ven-portfolio #services .vp-tool-icons-grid li {min-height:135px;padding:18px 8px;}
+}
+@media(prefers-reduced-motion:reduce){body.ven-portfolio #services .vp-tool-icons-grid li {transition:none;}}

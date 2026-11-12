@@ -1,0 +1,45 @@
+/* VEN_NINO_HERO_FULL_WIDTH_V4
+   Fix: the dark overlap band belongs to the full-width hero, not a centered grid.
+   The hero's text and portrait stay aligned inside the existing .vn-wrap.
+   No rules below target My Work, the gallery, or any video.
+*/
+
+/* Remove v3's narrow pseudo-element band; it caused the side gaps. */
+body.ven-portfolio #hero.vn-hero .vn-intro-grid::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Whole hero now carries its own edge-to-edge charcoal-to-black transition. */
+@media (min-width: 821px) {
+  body.ven-portfolio #hero.vn-hero {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    background: linear-gradient(
+      to bottom,
+      #0d0e0e 0%,
+      #0d0e0e calc(100% - 142px),
+      #000000 calc(100% - 142px),
+      #000000 100%
+    ) !important;
+  }
+  /* Don't paint an additional narrow rectangle behind the portrait. */
+  body.ven-portfolio #hero.vn-hero .vn-intro-grid {
+    isolation: auto;
+  }
+}
+@media (max-width: 820px) {
+  body.ven-portfolio #hero.vn-hero {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    background: linear-gradient(
+      to bottom,
+      #0d0e0e 0%,
+      #0d0e0e calc(100% - 88px),
+      #000000 calc(100% - 88px),
+      #000000 100%
+    ) !important;
+  }
+}
