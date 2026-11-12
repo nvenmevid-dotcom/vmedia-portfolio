@@ -184,106 +184,70 @@
     reduceMotion.addEventListener('change',()=>{if(reduceMotion.matches){manuallyStarted=false;video.pause();}else playVideo();});
     displayState();
   });
-  // VEN_FEATURED_MOTION_V22: only the existing horizontal player.
+  // VEN_FEATURED_VISIBILITY_V3: reliable muted loop; no hover/native controls.
+  // The previous 35%-ratio observer could miss tall videos until tab visibility changed.
   const featured = document.getElementById('vp-featured-video');
   if (featured) {
+    featured.controls = false;
+    featured.removeAttribute('controls');
     featured.loop = true;
-    featured.defaultMuted = true;
     featured.muted = true;
+    featured.defaultMuted = true;
     featured.playsInline = true;
-    // Do not add autoplay: playback starts only when the player is visible.
-    featured.autoplay = false;
-
-    if ('IntersectionObserver' in window) {
-      let inView = false;
-      let userPaused = false;
-      let manuallyStarted = false;
-      let pendingPlay = false;
-      let expectedPauses = 0;
-      let autoplayBlocked = false;
-      const saveData = Boolean(navigator.connection?.saveData);
-      const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-      function pauseForVisibility() {
-        if (!featured.paused) {
-          expectedPauses += 1;
-          featured.pause();
-        }
-      }
-
-      async function playWhenVisible() {
-        if (!inView || document.hidden || userPaused || pendingPlay || autoplayBlocked || featured.error) return;
-        if (!manuallyStarted && (motionPreference.matches || saveData)) return;
-        if (!featured.paused) return;
-        pendingPlay = true;
-        let interrupted = false;
-        try {
-          await featured.play();
-          if (!inView || document.hidden || userPaused) pauseForVisibility();
-        } catch (error) {
-          // No forced unmute, no repeated retries. Native Play remains usable.
-          if (error?.name === 'NotAllowedError') autoplayBlocked = true;
-          else if (error?.name === 'AbortError') interrupted = true;
-        } finally {
-          pendingPlay = false;
-          if (interrupted && inView && !document.hidden && !userPaused) {
-            requestAnimationFrame(playWhenVisible);
-          }
-        }
-      }
-
-      featured.addEventListener('pause', () => {
-        if (expectedPauses > 0) { expectedPauses -= 1; return; }
-        if (inView && !document.hidden) userPaused = true;
-      });
-      featured.addEventListener('play', () => {
-        if (!pendingPlay) {
-          userPaused = false;
-          autoplayBlocked = false;
-          manuallyStarted = true;
-        }
-        if (!inView || document.hidden) pauseForVisibility();
-      });
-
-      // Start with 35% visible; stop below 8% to avoid edge flickering.
-      let observer;
-      function observePlayer() {
-        observer?.disconnect();
-        const headerHeight = Math.max(0, document.getElementById('vp-header')?.offsetHeight || 0);
-        observer = new IntersectionObserver(entries => {
-          const entry = entries[entries.length - 1];
-          const ratio = entry.intersectionRatio;
-          if (!inView && entry.isIntersecting && ratio >= 0.35) {
-            inView = true;
-            userPaused = false;
-            autoplayBlocked = false;
-            playWhenVisible();
-          } else if (inView && (!entry.isIntersecting || ratio < 0.08)) {
-            inView = false;
-            userPaused = false;
-            autoplayBlocked = false;
-            pauseForVisibility();
-          }
-        }, { rootMargin: `-${headerHeight}px 0px 0px 0px`, threshold: [0, 0.08, 0.35, 1] });
-        observer.observe(featured);
-      }
-      observePlayer();
-      let resizeTimer;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(observePlayer, 150);
-      }, { passive: true });
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) pauseForVisibility();
-        else playWhenVisible();
-      });
-      window.addEventListener('pagehide', pauseForVisibility);
-      window.addEventListener('pageshow', () => { observePlayer(); playWhenVisible(); });
-      motionPreference.addEventListener('change', () => {
-        if (motionPreference.matches) { manuallyStarted = false; pauseForVisibility(); }
-        else playWhenVisible();
-      });
+    featured.disablePictureInPicture = true;
+    featured.setAttribute('disablepictureinpicture', '');
+    featured.setAttribute('disableremoteplayback', '');
+    featured.preload = 'metadata';
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const saveData = Boolean(navigator.connection?.saveData);
+    let queued = false;
+    let pending = false;
+    let denied = false;
+    function enoughVisible() {
+      const r = featured.getBoundingClientRect();
+      const headerBottom = Math.max(0, document.getElementById('vp-header')?.getBoundingClientRect().bottom || 0);
+      const visiblePixels = Math.max(0, Math.min(r.bottom, window.innerHeight) - Math.max(r.top, headerBottom));
+      return visiblePixels >= Math.min(110, r.height * 0.16);
     }
-    // Without IntersectionObserver, the native controls still work; loop stays on.
+    async function syncPlayback() {
+      const visible = !document.hidden && enoughVisible();
+      const shouldPlay = visible && !reduce.matches && !saveData;
+      if (!shouldPlay) {
+        if (!featured.paused) featured.pause();
+        return;
+      }
+      if (pending || denied || !featured.paused || featured.error) return;
+      pending = true;
+      try {
+        await featured.play();
+      } catch (error) {
+        if (error?.name === 'NotAllowedError') denied = true;
+        // AbortError may happen while the browser is seeking/loading: canplay retries.
+      } finally {
+        pending = false;
+        if (document.hidden || !enoughVisible()) {
+          if (!featured.paused) featured.pause();
+        }
+      }
+    }
+    function queueSync() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => { queued = false; syncPlayback(); });
+    }
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(queueSync, { threshold: [0, 0.01, 0.1, 0.2, 0.4, 0.6, 1] });
+      observer.observe(featured);
+    }
+    window.addEventListener('scroll', queueSync, { passive: true });
+    window.addEventListener('resize', queueSync, { passive: true });
+    document.addEventListener('visibilitychange', queueSync);
+    window.addEventListener('pageshow', queueSync);
+    window.addEventListener('pagehide', () => { if (!featured.paused) featured.pause(); });
+    featured.addEventListener('loadeddata', queueSync);
+    featured.addEventListener('canplay', queueSync);
+    reduce.addEventListener('change', queueSync);
+    // Starts on initial load AND on scroll, without needing an alt-tab.
+    queueSync();
   }
 })();

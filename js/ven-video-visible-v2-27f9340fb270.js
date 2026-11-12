@@ -189,15 +189,25 @@ const volumeIcons = {
   }
   function refresh() {
     queued = false;
-    const limit = small.matches ? 1 : 2;
+    const limit = states.length;
     // Always prioritize a video deliberately started by a visitor.
     const eligible = states.filter(state => state.ratio >= 0.18 && !state.userPaused)
       .sort((a,b) => Number(b.manual) - Number(a.manual) || b.ratio - a.ratio);
     const allowed = new Set(eligible.slice(0, limit));
+    // VEN_VISIBLE_START_STAGGER_V1: spread video decoder starts across frames.
+    let nextStart = 0;
     states.forEach(state => {
       state.active = !document.hidden && allowed.has(state);
-      if (!state.active) pause(state);
-      else play(state);
+      if (!state.active) {
+        if (state.startTimer) { clearTimeout(state.startTimer); state.startTimer = null; }
+        pause(state);
+      } else if (state.video.paused && !state.pending && !state.startTimer) {
+        const delay = Math.min(nextStart++, 6) * 190; // VEN_SMOOTHER_START_V3
+        state.startTimer = setTimeout(() => {
+          state.startTimer = null;
+          if (state.active) play(state);
+        }, delay);
+      }
     });
   }
   function schedule() {
@@ -232,6 +242,8 @@ const volumeIcons = {
     video.addEventListener('enterpictureinpicture', schedule);
     video.addEventListener('leavepictureinpicture', schedule);
   });
+  // VEN_CANPLAY_RESUME_V3: retry pending visible starts when a large file is ready.
+  states.forEach(state => state.video.addEventListener('canplay', schedule));
   const stateByCard = new Map(states.map(state => [state.card, state]));
   let observer;
   function observe() {
